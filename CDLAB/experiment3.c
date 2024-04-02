@@ -13,12 +13,12 @@ void extract(FILE *input,FILE *output){
 			}
 			fputc('\n',output);
 		}else if(ch == '*' && prev == '/'){
-			fputc(prev,output);
 			while((ch = fgetc(input)) != EOF){
-				fputc(ch,output);
 				if(ch == '*' && (ch = fgetc(input)) == '/'){
 					break;
 				}
+				fputc(ch,output);
+				
 			}
 		}
 		prev = ch;
